@@ -1,7 +1,10 @@
 import React, {PureComponent} from 'react'
 import PropTypes from 'prop-types'
-import BTHeader from './header'
+import BTHeader from './layout/header'
 
+/**
+ * First component of the entire app.
+ */
 export default class App extends PureComponent {
   render() {
     return (
