@@ -1,0 +1,42 @@
+// margin helpers
+
+@for $i from 1 through 4 {
+  $margin: $i * 5;
+  .margin-top-#{$margin} {
+      margin-top: $margin + px!important;
+  }
+  .margin-right-#{$margin} {
+      margin-right: $margin + px!important;
+  }
+  .margin-bottom-#{$margin} {
+      margin-bottom: $margin + px!important;
+  }
+  .margin-left-#{$margin} {
+      margin-left: $margin + px!important;
+  }
+  .margin-#{$margin} {
+      margin: $margin + px!important;
+  }
+}
+
+.no-margin {
+  margin: 0px!important;
+}
+
+// greater margins
+
+@for $i from 3 through 5 {
+  $margin: $i * 10;
+  .margin-top-#{$margin} {
+      margin-top: $margin + px!important;
+  }
+  .margin-right-#{$margin} {
+      margin-right: $margin + px!important;
+  }
+  .margin-bottom-#{$margin} {
+      margin-bottom: $margin + px!important;
+  }
+  .margin-left-#{$margin} {
+      margin-left: $margin + px!important;
+  }
+}

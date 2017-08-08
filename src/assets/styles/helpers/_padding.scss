@@ -1,0 +1,43 @@
+// padding helpers
+
+@for $i from 1 through 4 {
+  $padding: $i * 5;
+  .padding-top-#{$padding} {
+      padding-top: $padding + px!important;
+  }
+  .padding-right-#{$padding} {
+      padding-right: $padding + px!important;
+  }
+  .padding-bottom-#{$padding} {
+      padding-bottom: $padding + px!important;
+  }
+  .padding-left-#{$padding} {
+      padding-left: $padding + px!important;
+  }
+  .padding-#{$padding} {
+      padding: $padding + px!important;
+  }
+}
+
+.no-padding {
+  padding: 0!important;
+}
+
+@for $i from 3 through 5 {
+  $padding: $i * 10;
+  .padding-top-#{$padding} {
+      padding-top: $padding + px!important;
+  }
+  .padding-right-#{$padding} {
+      padding-right: $padding + px!important;
+  }
+  .padding-bottom-#{$padding} {
+      padding-bottom: $padding + px!important;
+  }
+  .padding-left-#{$padding} {
+      padding-left: $padding + px!important;
+  }
+  .padding-#{$padding} {
+      padding: $padding + px!important;
+  }
+}
