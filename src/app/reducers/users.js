@@ -15,7 +15,7 @@ const initialState = fromJS({
     cached: false,
     filters: {
       _page: 1,
-      _limit: 6,
+      _limit: 8,
       q: ''
     }
 })

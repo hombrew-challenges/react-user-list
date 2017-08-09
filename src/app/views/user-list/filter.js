@@ -46,7 +46,8 @@ export default class UserListFilter extends PureComponent {
         <Col xs={12} sm={6}>
           <BTButton
             className="pull-right no-float-xs"
-            iconLeft="plus-circle">
+            iconLeft="plus-circle"
+            onClick={this.props.openModal}>
             Nuevo Contacto
           </BTButton>
         </Col>
@@ -56,7 +57,8 @@ export default class UserListFilter extends PureComponent {
 
   static get propTypes() {
     return {
-      updateFilter: PropTypes.func.isRequired
+      updateFilter: PropTypes.func.isRequired,
+      openModal: PropTypes.func
     }
   }
 

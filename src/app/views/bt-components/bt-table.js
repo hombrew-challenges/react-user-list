@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import {Row, Col} from 'react-bootstrap'
 import {BootstrapTable} from 'react-bootstrap-table'
 import Immutable from 'immutable'
+import classNames from 'classnames'
 
 /**
  * Beetrack Test App custom Table Component
@@ -36,7 +37,11 @@ export default class BTTable extends PureComponent {
   }
 
   render() {
-    let {options = {}, data, currentPage, pageLimit, ...tableProps} = this.props
+    let {options = {}, data, currentPage, pageLimit, className, ...tableProps} = this.props
+
+    className = className && className.split(' ')
+    const tableClassName = classNames('bt-table', className)
+
     const defaultOptions = {
       noDataText: '¡Añade algunos usuarios primero!'
     }
@@ -57,10 +62,10 @@ export default class BTTable extends PureComponent {
               condensed
               pagination={false}
               striped={false}
-              {...tableProps}
               data={data}
               options={newOptions}
-              className="bt-table"/>
+              className={tableClassName}
+              {...tableProps}/>
           </Col>
         </Row>
         <Row>

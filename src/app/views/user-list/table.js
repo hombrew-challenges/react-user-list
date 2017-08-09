@@ -51,7 +51,7 @@ export default class UserListTable extends PureComponent {
           onPageChange={onPageChange}>
           <TableHeaderColumn dataField="id" hidden isKey/> 
           <TableHeaderColumn
-            columnClassName="hovered-column"
+            columnClassName="hovered-column shadow-cell"
             dataField="name"
             width="300px"
             dataFormat={this.nameFormat}>

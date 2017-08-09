@@ -1,5 +1,6 @@
 .bt-table-wrapper {
   .bt-table {
+    box-shadow: -4px 4px 18px -4px rgba(184,184,184,0.42);
     .table {
       background-color: rgb(255, 255, 255);
     }
@@ -16,6 +17,10 @@
       &:hover {
         background-color: #f5f5f5;
       }
+    }
+
+    .shadow-cell {
+      box-shadow: 3px 0px 4px 0px rgba(184,184,184,0.42);
     }
   }
 

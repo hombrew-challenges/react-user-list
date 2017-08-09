@@ -51,6 +51,20 @@ export function updateUserListFilter(filters = {}) {
   }
 }
 
+export function createUser(params, callback) {
+  return (dispatch) => {
+    api
+      .post(API_USER_LIST, params, {headers: {'Content-Type': 'application/json'}})
+      .then((response) => {
+        dispatch(updateFilter({_page: 1}))
+        dispatch(getUserList())
+        if (callback) {
+          callback(response)
+        }
+      })
+  }
+}
+
 /**
  * Starts Loader, deletes an user and reload user list
  * @param {Number} id 

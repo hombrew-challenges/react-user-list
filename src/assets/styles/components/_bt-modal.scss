@@ -1,0 +1,20 @@
+.bt-modal {
+  .modal-dialog {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)!important;
+    margin: 0;
+    .modal-content {
+      border-radius: 0;
+      box-shadow: none;
+      .modal-header {
+        padding: 22px;
+      }
+      .modal-body {
+        background-color: $modal-body-color;
+        padding: 30px;
+      }
+    }
+  }
+}

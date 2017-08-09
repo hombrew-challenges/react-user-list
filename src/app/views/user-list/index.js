@@ -5,7 +5,8 @@ import {bindActionCreators} from 'redux'
 import {Grid, Row} from 'react-bootstrap'
 import UserListFilter from './filter'
 import UserListTable from './table'
-import {getUserList, updateUserListFilter, deleteUserFromList} from 'app/actions/users'
+import UserListAddUserModal from './add-user-modal'
+import {getUserList, updateUserListFilter, createUser, deleteUserFromList} from 'app/actions/users'
 
 /**
  * User List Route
@@ -15,6 +16,9 @@ class UserListView extends PureComponent {
   constructor(props) {
     super(props)
     this.onPageChange = this.onPageChange.bind(this)
+    this.onShowAddUserModal = this.onShowAddUserModal.bind(this)
+    this.onHideAddUserModal = this.onHideAddUserModal.bind(this)
+    this.state = {showAddUserModal: false}
   }
 
   componentWillMount() {
@@ -32,12 +36,29 @@ class UserListView extends PureComponent {
     this.props.updateUserListFilter({_page})
   }
 
+  /**
+   * Method to open Add User Modal
+   */
+  onShowAddUserModal() {
+    this.setState(() => ({showAddUserModal: true}))
+  }
+
+  /**
+   * Method to close Add User Modal
+   */
+  onHideAddUserModal() {
+    this.setState(() => ({showAddUserModal: false}))
+  }
+
   render() {
     const {users, currentPage, pageLimit} = this.props
     return (
       <Grid className="BTPAGE__user-list margin-bottom-20">
         <Row className="margin-bottom-10">
-          <UserListFilter updateFilter={this.props.updateUserListFilter}/>
+          <UserListFilter
+            updateFilter={this.props.updateUserListFilter}
+            openModal={this.onShowAddUserModal}
+            />
         </Row>
         <Row>
           <UserListTable
@@ -48,6 +69,11 @@ class UserListView extends PureComponent {
             onPageChange={this.onPageChange}
             />
         </Row>
+        <UserListAddUserModal
+          show={this.state.showAddUserModal}
+          onHide={this.onHideAddUserModal}
+          createUser={this.props.createUser}
+          />
       </Grid>
     )
   }
@@ -80,6 +106,7 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({
     getUserList,
     updateUserListFilter,
+    createUser: createUser,
     deleteUserFromList
   }, dispatch)
 }
