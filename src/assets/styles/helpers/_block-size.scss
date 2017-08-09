@@ -1,0 +1,88 @@
+@media (max-width: 767px) {
+  .xs-block {
+    display: block;
+    width: 100%;
+  }
+}
+
+.no-float-xs {
+  @media (max-width: 767px) {
+    float: none!important;
+  }
+}
+
+.text-center-xs {
+  @media (max-width: 767px) {
+    text-align: center!important;
+  }
+}
+
+$aligns: left center right;
+
+@each $align in $aligns {
+  .text-#{$align}-xs {
+    @media (max-width: 767px) {
+      text-align: $align!important;
+    }
+  }
+  .text-#{$align}-sm {
+    @media (min-width: 768px) and (max-width: 991px) {
+      text-align: $align!important;
+    }
+  }
+  .text-#{$align}-md {
+    @media (min-width: 992px) and (max-width: 1199px) {
+      text-align: $align!important;
+    }
+  }
+  .text-#{$align}-lg {
+    @media (min-width: 1200px) {
+      text-align: $align!important;
+    }
+  }
+}
+
+$sides: top right left bottom;
+
+@each $side in $sides {
+  .no-margin-#{$side}-xs {
+    @media (max-width: 767px) {
+        margin-#{$side}: 0 !important;
+    }
+  }
+
+  .no-padding-#{$side}-xs {
+    @media (max-width: 767px) {
+        padding-#{$side}: 0 !important;
+    }
+  }
+}
+
+
+@for $i from 1 through 4 {
+  $margin: $i * 5;
+  @each $side in $sides {
+    .margin-#{$side}-#{$margin}-xs {
+      @media (max-width: 767px) {
+        margin-#{$side}: $margin + px!important;
+      }
+    }
+  }
+  .margin-#{$margin}-xs {
+    @media (max-width: 767px) {
+      margin: $margin + px!important;
+    }
+  }   
+}
+
+.no-margin-xs {
+  @media (max-width: 767px) {
+    margin: 0!important;
+  }
+}
+
+.no-padding-xs {
+  @media (max-width: 767px) {
+    padding: 0!important;
+  }
+}

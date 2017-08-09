@@ -14,6 +14,7 @@ import registerServiceWorker from './registerServiceWorker'
 
 // styles
 import 'bootstrap/dist/css/bootstrap.css'
+import 'react-bootstrap-table/css/react-bootstrap-table.css'
 import 'font-awesome/css/font-awesome.css'
 import './assets/styles/main.css'
 

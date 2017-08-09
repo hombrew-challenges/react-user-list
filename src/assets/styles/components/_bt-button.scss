@@ -1,0 +1,20 @@
+.bt-button {
+  background-color: $default-element-color;
+  color: $default-element-text-color;
+  &:hover {
+    background-color: $default-element-hover-color;
+    color: $default-element-text-color;
+  }
+  &:focus, &.btn-default:active {
+    background-color: $default-element-focus-color;
+    color: $default-element-text-color;
+  }
+  i.icon-left {
+    font-size: medium;
+    margin-right: 5px;
+  }
+  i.icon-right {
+    font-size: medium;
+    margin-left: 5px;
+  }
+}

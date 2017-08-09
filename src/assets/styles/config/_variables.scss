@@ -1,4 +1,10 @@
 $body-background-color: rgb(223, 223, 223);
 
 $body-font-color: rgb(160, 163, 164);
-$body-strong-font-color: rgb(79, 79, 79);
+// $body-strong-font-color: rgb(79, 79, 79);
+$body-strong-font-color: rgb(104, 104, 104);
+
+$default-element-color: rgb(248, 165, 48);
+$default-element-hover-color: darken($default-element-color, 5%);
+$default-element-focus-color: darken($default-element-color, 10%);
+$default-element-text-color: white;

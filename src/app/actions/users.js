@@ -52,25 +52,15 @@ export function updateUserListFilter(filters = {}) {
 }
 
 /**
- * Deletes user from list
- */
-export const USER_LIST_DELETE_USER = 'USER LIST :: DELETE USER'
-const deleteUser = createAction(
-  USER_LIST_DELETE_USER,
-  (id) => new Promise(
-    (resolve, reject) => api
-      .delete(API_USER(id))
-      .then(response => resolve({...response, data: {id}}))
-  )
-)
-
-/**
- * Starts Loader and deletes an user
+ * Starts Loader, deletes an user and reload user list
  * @param {Number} id 
  */
 export function deleteUserFromList(id) {
   return (dispatch, getState) => {
     dispatch(startLoading())
-    dispatch(deleteUser(id))
+    api
+      .delete(API_USER(id))
+      .then(() => dispatch(getUserList()))
+    // dispatch(deleteUser(id))
   }
 }

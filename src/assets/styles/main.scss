@@ -1,5 +1,3 @@
-// IMPORTS
-
 // configuration
 @import 'config/variables.scss';
 @import 'config/body.scss';
@@ -8,6 +6,16 @@
 @import 'helpers/margin.scss';
 @import 'helpers/padding.scss';
 @import 'helpers/positioning.scss';
+@import 'helpers/block-size.scss';
+@import 'helpers/misc.scss';
 
-// pages
+// components
+@import 'components/bt-button.scss';
+@import 'components/bt-inputs/bt-search-input.scss';
+@import 'components/bt-table.scss';
+
+// layout
 @import 'layout/header.scss';
+
+// views
+@import 'views/user-list.scss';

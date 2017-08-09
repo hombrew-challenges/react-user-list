@@ -1,0 +1,19 @@
+.bt-search-input {
+  line-height: 0px;
+  position: relative;
+  &:before {
+    content: "\f002";
+    font-family: "FontAwesome";
+    color: $default-element-color;
+    font-size: 1.2em;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px;
+  }
+  .form-control {
+    padding-left: 32px;
+    border: none;
+    border-radius: 0;
+  }
+}

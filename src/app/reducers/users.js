@@ -3,8 +3,7 @@ import {fromJS} from 'immutable'
 import {
   USER_LIST_LOADING,
   USER_LIST_SET_USERS,
-  USER_LIST_UPDATE_FILTER,
-  USER_LIST_DELETE_USER
+  USER_LIST_UPDATE_FILTER
 } from 'app/actions/users'
 
 /**
@@ -16,7 +15,7 @@ const initialState = fromJS({
     cached: false,
     filters: {
       _page: 1,
-      _limit: 10,
+      _limit: 6,
       q: ''
     }
 })
@@ -34,10 +33,14 @@ actionMap[USER_LIST_LOADING] = (state, action) => {
  * Users received
  */
 actionMap[USER_LIST_SET_USERS] = (state, action) => {
-  return state
-    .set('list', fromJS(action.payload.data))
-    .set('loading', false)
-    .set('cached', true)
+  let newState = state
+  if (action.payload.status === 200) {
+    newState = newState
+      .set('list', fromJS(action.payload.data))
+      .set('loading', false)
+      .set('cached', true)
+  }
+  return newState
 }
 
 /**
@@ -46,25 +49,12 @@ actionMap[USER_LIST_SET_USERS] = (state, action) => {
 actionMap[USER_LIST_UPDATE_FILTER] = (state, action) => {
   let newState = state
   const filters = action.payload
-  Object.keys(filters).forEach((key) => {
+  const filterKeys = Object.keys(filters)
+  filterKeys.forEach((key) => {
     newState = newState.setIn(['filters', key], filters[key])
   })
-  return newState
-}
-
-/**
- * User deleted from List
- */
-actionMap[USER_LIST_DELETE_USER] = (state, action) => {
-  let newState = state
-  const {status, data} = action.payload
-  if (status === 200) {
-    newState = newState.update(
-      'list',
-      (list) => list.delete(
-        list.findIndex(item => item.get('id') === data.id)
-      )
-    )
+  if (filterKeys.includes('q')) {
+    newState = newState.setIn(['filters', '_page'], 1)
   }
   return newState
 }

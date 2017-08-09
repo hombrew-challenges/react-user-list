@@ -1,0 +1,40 @@
+.BTPAGE__user-list {
+
+  // search input size
+  .bt-search-input {
+    .form-control {
+      @media (min-width: 768px) {
+        max-width: 300px;
+      }
+    }
+  }
+
+  // 'name' column format style
+  .bt-table-name-format {
+    padding: 10px 15px;
+    .picture {
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      width: 50px;
+      height: 50px;
+    }
+    .name {
+      height: 35px;
+    }
+    .delete {
+      height: 15px;
+      color: $default-element-color;
+      visibility: hidden;
+    }
+    &:hover {
+      .delete {
+        visibility: visible;
+      }
+    }
+  }
+
+  .description-column {
+    padding: 20px 15px 10px 15px;
+  }
+}
